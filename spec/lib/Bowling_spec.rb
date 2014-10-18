@@ -28,7 +28,13 @@ describe Bowling do
     expect(@game.score).to eq 28
   end
   it "Can roll a perfect game" do
-    20.times {@game.roll 10}
+    12.times {@game.roll 10}
     expect(@game.score).to eq 300
+  end
+  it "Can roll a spare in tenth frame" do
+    19.times {@game.roll 1}
+    @game.roll 9
+    @game.roll 5
+    expect(@game.score).to eq 33
   end
 end
